@@ -1,26 +1,27 @@
 <?php
 session_start();
-if (!isset($_SESSION['cases'])) header("Location: index.php");
+require_once "logic/init.php";
+
+$cases = $_SESSION['cases'];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Select Your Case</title>
 </head>
+
 <body class="fade-in">
+    <h1>Select Your Case</h1>
 
-<h2>Select Your Case</h2>
-
-<form action="game.php" method="post">
     <div class="case-grid">
-        <?php foreach ($_SESSION['cases'] as $i => $v): ?>
-            <button class="case-btn" name="player_case" value="<?= $i ?>">
-                <?= $i+1 ?>
-            </button>
+        <?php foreach ($cases as $i => $val): ?>
+            <a class="case"
+               href="game.php?pick=<?php echo $i; ?>">
+                Case <?php echo $i+1; ?>
+            </a>
         <?php endforeach; ?>
     </div>
-</form>
-
 </body>
 </html>
