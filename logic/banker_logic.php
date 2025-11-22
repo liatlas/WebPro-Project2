@@ -9,9 +9,9 @@ function banker_offer($remaining_values, $round) {
     $min = min($remaining_values);
     $volatilty = ($max - $min) / $max;
 
-    $round_factor = 0.35 + (round * 0.08);
+    $round_factor = 0.35 + ($round * 0.08);
 
-    $offer = $avg * (1 - $volatilty) * round_factor;
+    $offer = $avg * (1 - $volatilty) * $round_factor;
     return round($offer, 2);
 }
 ?>

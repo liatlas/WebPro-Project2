@@ -9,8 +9,8 @@ function remaining_values() {
             $i != $_SESSION['player_case']) {
                 $remaining[] = $val;
             }
-            return $remaining;
     }        
+    return $remaining;
 }
 
 function cases_per_round($round) {
