@@ -1,8 +1,8 @@
 <?php
 function banker_offer($remaining_values, $round) {
-    // output is calculated by taking the average
-    // reducing it according to the volatility(spread)
-    // increasing it by the round
+    // Output is calculated by taking the average
+    // Reducing it according to the volatility(spread)
+    // Increasing it by the round
     $avg = array_sum($remaining_values) / count($remaining_values);
 
     $max = max($remaining_values);
