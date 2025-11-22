@@ -1,0 +1,41 @@
+/* ==========================
+   Keyframes & Animations
+=========================== */
+
+/* Case Opening Animation */
+@keyframes openFlip {
+  0% { transform: rotateX(0deg) translateY(0); opacity: 0; }
+  40% { transform: rotateX(80deg) translateY(-8px); opacity: 0.6; }
+  100% { transform: rotateX(0deg) translateY(0); opacity: 1; }
+}
+
+.case.opened {
+  animation: openFlip 0.8s ease forwards;
+}
+
+/* Fade-in animation for pages */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Banker Offer Popup */
+@keyframes popupIn {
+  from {transform: translateY(24px) scale(0.95); opacity: 0;}
+  to {transform: translateY(0) scale(1); opacity: 1;}
+}
+
+.bank-offer {
+  animation: popupIn 0.5s ease;
+}
+
+/* Reveal animation for result */
+@keyframes revealPulse {
+  0% { transform: scale(0.95); opacity: 0;}
+  60% { transform: scale(1.05); opacity: 1;}
+  100% { transform: scale(1); }
+}
+
+.results-box {
+  animation: revealPulse 1s ease;
+}
