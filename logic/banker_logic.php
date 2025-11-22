@@ -1,17 +1,36 @@
 <?php
-function banker_offer($remaining_values, $round) {
-    // Output is calculated by taking the average
-    // Reducing it according to the volatility(spread)
-    // Increasing it by the round
-    $avg = array_sum($remaining_values) / count($remaining_values);
+function banker_offer($values, $round) {
+    if (empty($values) || !is_array($values)) {
+        return 0.00;
+    }
+    
+    $count = count($values);
+    if ($count === 0) {
+        return 0.00;
+    }
+    
+    $avg = array_sum($values) / $count;
+    $max = max($values);
+    $min = min($values);
+    
+    if ($max == 0) {
+        return 0.00;
+    }
+    
+    $volatility = ($max - $min) / $max;
+    $factor = 0.35 + ($round * 0.08);
+    
+    if ($factor > 1.0) {
+        $factor = 1.0;
+    }
 
-    $max = max($remaining_values);
-    $min = min($remaining_values);
-    $volatilty = ($max - $min) / $max;
-
-    $round_factor = 0.35 + ($round * 0.08);
-
-    $offer = $avg * (1 - $volatilty) * $round_factor;
+    $offer = $avg * (1 - $volatility) * $factor;
+    
+    $min_offer = $avg * 0.01;
+    if ($offer < $min_offer) {
+        $offer = $min_offer;
+    }
+    
     return round($offer, 2);
 }
 ?>
