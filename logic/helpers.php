@@ -12,4 +12,9 @@ function remaining_values() {
             return $remaining;
     }        
 }
+
+function cases_per_round($round) {
+    // How many cases will the player open in a round
+    return max(1, 6 - $round);
+}
 ?>
