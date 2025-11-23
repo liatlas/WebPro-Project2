@@ -26,7 +26,7 @@ Players face a suspenseful experience, selecting one briefcase and eliminating o
 
 ---
 
-## Additional Key Features
+## Additional Key Feature
 
 
 - **Progressive Value Revelation**  
